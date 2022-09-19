@@ -1,3 +1,4 @@
+//Library Imports
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -8,8 +9,9 @@ const app = express();
 
 //Setup for MongoDB Database Connection
 const MongoClient = require('mongodb').MongoClient;
-var password = encodeURIComponent("SoftwareStudio10/");
-const uri = `mongodb+srv://StudioProject:${password}@cluster0.wnvcpae.mongodb.net/?retryWrites=true&w=majority`;
+var mongo_database_name = encodeURIComponent("StudioProject")
+var mongo_password = encodeURIComponent("SoftwareStudio10/");
+const uri = `mongodb+srv://${mongo_database_name}:${mongo_password}@cluster0.wnvcpae.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
@@ -28,9 +30,22 @@ app.use( bodyParser.json() );
 app.get('/', (req, res) => { 
     res.sendFile(path.resolve(__dirname, 'templates', 'data.html'));
 });
-//Get Request for Utility Data Submission Page
-app.get('/submit-data', (req, res) => { 
-    res.sendFile(path.resolve(__dirname, 'templates', 'submit-data.html'));
+//Get Request for Utility Data Type Selection Page
+app.get('/select-data', (req, res) => { 
+    res.sendFile(path.resolve(__dirname, 'templates', 'select_data.html'));
+})
+
+//Get Request for POWER Utility Data Submission Page
+app.get('/submit-data-power', (req, res) => { 
+    res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_power.html'));
+})
+//Get Request for WATER Utility Data Submission Page
+app.get('/submit-data-water', (req, res) => { 
+    res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_water.html'));
+})
+//Get Request for POWER Utility Data Submission Page
+app.get('/submit-data-waste', (req, res) => { 
+    res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_waste.html'));
 })
 
 //Post Requests for Data Submission Page
