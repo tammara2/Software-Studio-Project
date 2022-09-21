@@ -34,7 +34,6 @@ app.get('/', (req, res) => {
 app.get('/select-data', (req, res) => { 
     res.sendFile(path.resolve(__dirname, 'templates', 'select_data.html'));
 })
-
 //Get Request for POWER Utility Data Submission Page
 app.get('/submit-data-power', (req, res) => { 
     res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_power.html'));
@@ -47,7 +46,6 @@ app.get('/submit-data-water', (req, res) => {
 app.get('/submit-data-waste', (req, res) => { 
     res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_waste.html'));
 })
-
 //Post Requests for Data Submission Page
 app.post('/submit-data', async (req, res) => {
     await client.connect();
@@ -61,5 +59,42 @@ app.post('/register', async (req, res) => {
     //X = a user entered selection of the type of data (waste, power, water)
     const poll = database.collection(x);
 })
+
+//This is the asynchronous function that allows for the submission of utility data. More work is required to specify the specific variables and order of items 
+//The function will be called from within the express function that correlates with the user's selected utility type.
+async function submit_data(data_option, quantity_values){
+    await client.connect();
+    const database = client.db("Data");
+    const selection = database.collection(data_option)
+    //Data option is a field passed from the frontend when the user selects it.
+    if (data_option == "waste"){
+        let data_field = {
+            "total_waste_mass": quantity_values[0],
+            "compost_mass": quantity_values[1],
+            "recycle_mass": quantity_values[2],
+            "trash_mass": quantity_values[3], 
+            "hazardous_mass": quantity_values[4]      
+        }
+    }
+    if (data_option == "power"){
+        let data_field = {
+            "total_power_usage": quantity_values[0],
+
+
+        }
+    }
+    if (data_option == "water"){
+        let data_field = {
+            "total_water_usage": quantity_values[0],     
+        }
+    }
+    //Submit results to the mongo server
+    const result = await selection.insertOne(data_field);
+    //Check result for testing purposes
+    console.log(result)
+    //Close mongo client
+    await client.close();
+}
+
 //Run Server
 app.listen(process.env.PORT || 8080, () => console.log('Server running at http://127.0.0.1:8080'));
