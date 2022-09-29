@@ -46,12 +46,17 @@ app.get('/submit-data-water', (req, res) => {
 app.get('/submit-data-waste', (req, res) => { 
     res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_waste.html'));
 })
-//Post Requests for Data Submission Page
-app.post('/submit-data', async (req, res) => {
-    await client.connect();
-    const database = client.db("Data");
-    //X = a user entered selection of the type of data (waste, power, water)
-    const poll = database.collection(x);
+
+//Post Requests for Data Type Selection Page
+app.post('/select-data', async (req, res) => {
+    //Get the type of data the user selected 
+    let user_selected_data_type = req.body
+    //Just for testing
+    console.log(user_selected_data_type)
+    //Run the submit_data function with the given info
+    
+    //Redirect the user to the home page, just a placeholder action for now, in the future it should direct to the submission form depending on which data type was selected
+    res.redirect('/')
 })
 app.post('/register', async (req, res) => {
     await client.connect();
