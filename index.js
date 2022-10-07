@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 const request = require('request');
+
+//ExpressJS
 const app = express();
 
 //Setup for MongoDB Database Connection
@@ -35,15 +37,15 @@ app.get('/select-data', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'templates', 'select_data.html'));
 })
 //Get Request for POWER Utility Data Submission Page
-app.get('/submit-data-power', (req, res) => { 
+app.get('/submit/power', (req, res) => { 
     res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_power.html'));
 })
 //Get Request for WATER Utility Data Submission Page
-app.get('/submit-data-water', (req, res) => { 
+app.get('/submit/water', (req, res) => { 
     res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_water.html'));
 })
 //Get Request for POWER Utility Data Submission Page
-app.get('/submit-data-waste', (req, res) => { 
+app.get('/submit/waste', (req, res) => { 
     res.sendFile(path.resolve(__dirname, 'templates/submission', 'submit_data_waste.html'));
 })
 
@@ -55,9 +57,32 @@ app.post('/select-data', async (req, res) => {
     console.log(user_selected_data_type)
     //Run the submit_data function with the given info
     
-    //Redirect the user to the home page, just a placeholder action for now, in the future it should direct to the submission form depending on which data type was selected
-    res.redirect('/')
+    //Redirect the user to the associated data submission page
+    res.redirect('/'+"submit/"+user_selected_data_type["data_type_selection"].toLowerCase())
 })
+
+//Post for submiting the electricity data
+app.post("/submit/power", async (req, res) => {
+    //Accept data from the frontend
+    let submitted_power_data = req.body.power_form
+    //Ensure that the submitted_power_data is an array
+    submit_data("power", submitted_power_data)
+})
+//Post for submiting the electricity data
+app.post("/submit/water", async (req, res) => {
+    //Accept data from the frontend
+    let submitted_power_data = req.body.water_form
+    //Ensure that the submitted_power_data is an array
+    submit_data("water", submitted_power_data)
+})
+//Post for submiting the waste data
+app.post("/submit/power", async (req, res) => {
+    //Accept data from the frontend
+    let submitted_power_data = req.body.waste_form
+    //Ensure that the submitted_power_data is an array
+    submit_data("waste", submitted_power_data)
+})
+
 app.post('/register', async (req, res) => {
     await client.connect();
     const database = client.db("Data");
