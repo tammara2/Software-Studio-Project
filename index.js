@@ -61,12 +61,14 @@ app.post("/submit/power", async (req, res) => {
     let submitted_power_data = req.body.power_form
     console.log(submitted_power_data)
     submit_data("Power/Electricity", submitted_power_data)
+    res.redirect("/")
 })
 //Post for submiting the electricity data
 app.post("/submit/water", async (req, res) => {
     //Accept data from the frontend
     let submitted_power_data = req.body.water_form
     submit_data("Water", submitted_power_data)
+    res.redirect("/")
 })
 //Post for submiting the waste data
 app.post("/submit/waste", async (req, res) => {
@@ -74,6 +76,7 @@ app.post("/submit/waste", async (req, res) => {
     let submitted_power_data = req.body.waste_form
     await client.connect();
     submit_data("Waste", submitted_power_data)
+    res.redirect("/")
 })
 
 app.post('/register', async (req, res) => {
@@ -91,7 +94,7 @@ async function submit_data(data_option, quantity_values){
     const selection = database.collection(data_option)
     //Data option is a field passed from the frontend when the user selects it.
     let data_field = {}
-    if (data_option == "waste"){
+    if (data_option == "Waste"){
         data_field = {
             "total_waste_mass": quantity_values[0],
             "compost_mass": quantity_values[1],
@@ -108,7 +111,7 @@ async function submit_data(data_option, quantity_values){
             "total_power_cost": quantity_values[3]
         }
     }
-    if (data_option == "water"){
+    if (data_option == "Water"){
         data_field = {
             "total_water_usage": quantity_values[0],     
         }
