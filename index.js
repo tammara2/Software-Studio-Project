@@ -5,20 +5,14 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 const request = require('request');
+const {MongoClient} = require('mongodb');
 
 //ExpressJS
 const app = express();
 
 //Setup for MongoDB Database Connection
-const MongoClient = require('mongodb').MongoClient;
-var mongo_database_name = encodeURIComponent("StudioProject")
-var mongo_password = encodeURIComponent("SoftwareStudio10/");
-const uri = `mongodb+srv://${mongo_database_name}:${mongo_password}@cluster0.wnvcpae.mongodb.net/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  client.close();
-});
+const uri = "mongodb+srv://StudioProject:SoftwareStudio1000@cluster0.wnvcpae.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri);
 
 //Setup for static pages, HTML and CSS
 app.use("/styles", express.static("styles"))
@@ -65,22 +59,21 @@ app.post('/select-data', async (req, res) => {
 app.post("/submit/power", async (req, res) => {
     //Accept data from the frontend
     let submitted_power_data = req.body.power_form
-    //Ensure that the submitted_power_data is an array
-    submit_data("power", submitted_power_data)
+    console.log(submitted_power_data)
+    submit_data("Power/Electricity", submitted_power_data)
 })
 //Post for submiting the electricity data
 app.post("/submit/water", async (req, res) => {
     //Accept data from the frontend
     let submitted_power_data = req.body.water_form
-    //Ensure that the submitted_power_data is an array
-    submit_data("water", submitted_power_data)
+    submit_data("Water", submitted_power_data)
 })
 //Post for submiting the waste data
-app.post("/submit/power", async (req, res) => {
+app.post("/submit/waste", async (req, res) => {
     //Accept data from the frontend
     let submitted_power_data = req.body.waste_form
-    //Ensure that the submitted_power_data is an array
-    submit_data("waste", submitted_power_data)
+    await client.connect();
+    submit_data("Waste", submitted_power_data)
 })
 
 app.post('/register', async (req, res) => {
@@ -97,8 +90,9 @@ async function submit_data(data_option, quantity_values){
     const database = client.db("Data");
     const selection = database.collection(data_option)
     //Data option is a field passed from the frontend when the user selects it.
+    let data_field = {}
     if (data_option == "waste"){
-        let data_field = {
+        data_field = {
             "total_waste_mass": quantity_values[0],
             "compost_mass": quantity_values[1],
             "recycle_mass": quantity_values[2],
@@ -106,15 +100,16 @@ async function submit_data(data_option, quantity_values){
             "hazardous_mass": quantity_values[4]      
         }
     }
-    if (data_option == "power"){
-        let data_field = {
+    if (data_option == "Power/Electricity"){
+        data_field = {
             "total_power_usage": quantity_values[0],
-
-
+            "grid_power_usage": quantity_values[1],
+            "self_power_usage": quantity_values[2],
+            "total_power_cost": quantity_values[3]
         }
     }
     if (data_option == "water"){
-        let data_field = {
+        data_field = {
             "total_water_usage": quantity_values[0],     
         }
     }
