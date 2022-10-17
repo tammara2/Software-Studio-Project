@@ -7,6 +7,7 @@ const path = require('path');
 const request = require('request');
 const {MongoClient} = require('mongodb');
 
+
 //ExpressJS
 const app = express();
 
@@ -92,6 +93,8 @@ async function submit_data(data_option, quantity_values){
     await client.connect();
     const database = client.db("Data");
     const selection = database.collection(data_option)
+    var datetime = new Date();
+    console.log(datetime.toISOString().slice(0,10));
     //Data option is a field passed from the frontend when the user selects it.
     let data_field = {}
     if (data_option == "Waste"){
@@ -116,6 +119,7 @@ async function submit_data(data_option, quantity_values){
             "total_water_usage": quantity_values[0],     
         }
     }
+    data_field["date"] = datetime
     //Submit results to the mongo server
     const result = await selection.insertOne(data_field);
     //Check result for testing purposes
