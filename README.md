@@ -1,5 +1,5 @@
 
-# School Utility Tracker - Backend
+# School Utility Tracker - Frontend
 
 This is the backend of the School Utility Tracker, made in NodeJs and ExpressJS with a MongoDB database connection.
 
