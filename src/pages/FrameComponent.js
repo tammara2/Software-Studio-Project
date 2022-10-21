@@ -20,7 +20,7 @@ const FrameComponent = () => {
   }, []);
 
   const onImage41Click = useCallback(() => {
-    window.open("twitter.com/claymalott");
+    window.open("https://twitter.com/claymalott");
   }, []);
 
   return (
@@ -34,12 +34,12 @@ const FrameComponent = () => {
       <img
         className={styles.rectangle491}
         alt=""
-        src="../rectangle-49-1@2x.png"
+        src="https://media.npr.org/assets/img/2022/07/29/20170317_arh-5362-pano_custom-c6c9b04d1b0d75672aad98ef19a5e7168de58958-s1100-c50.jpg"
       />
       <img
         className={styles.rectangle511}
         alt=""
-        src="../rectangle-51-1@2x.png"
+        src="https://www.travelandleisure.com/thmb/fO7XqI4KSxfatFXn_Spy822LaMA=/1600x1200/smart/filters:no_upscale()/grand-teton-rocky-mountains-USMNTNS0720-52499caea565471a8571acdfc3dfd9fe.jpg"
       />
       <div className={styles.groupDiv}>
         <img
@@ -87,7 +87,7 @@ const FrameComponent = () => {
           <img
             className={styles.rectangle531}
             alt=""
-            src="../rectangle-53-1@2x.png"
+            src="https://res.cloudinary.com/dpcbzfiye/image/upload/w_1620,c_fit,dpr_auto,f_auto,q_auto,fl_progressive/v1650575251/xqrtanikjz8onydz0lgx.jpg"
           />
           <div className={styles.groupDiv4}>
             <img
@@ -112,9 +112,9 @@ const FrameComponent = () => {
         </div>
       </div>
       <b className={styles.contactUsB}>Contact Us</b>
-      <button className={styles.image21} onClick={onImage21Click} />
-      <button className={styles.image31} onClick={onImage31Click} />
-      <button className={styles.image41} onClick={onImage41Click} />
+      <img className={styles.image21} src="https://i.imgur.com/BIj6hHW.png" onClick={onImage21Click} />
+      <img className={styles.image31} src="https://i.imgur.com/cqdXxBJ.png" onClick={onImage31Click} />
+      <img className={styles.image41} src="https://i.imgur.com/Gf4H7nN.png" onClick={onImage41Click} />
     </div>
   );
 };
