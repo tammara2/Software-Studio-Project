@@ -25,7 +25,7 @@ const Dashboard: FunctionComponent = () => {
             <div className="absolute top-[0.3px] left-[0px] text-base tracking-[-0.01em] text-gray-400 inline-block w-[188.93px] h-[19.89px]">
               Daily Concentration
             </div>
-            <MonthlyCon monthlyVal="415.73 ppm" />
+            <MonthlyCon monthlyVal="416.0 ppm" />
             <AmericaCon americaVal="460 ppm" />
             <img
               className="absolute top-[0px] left-[653.31px] w-[80px] h-[80px]"
