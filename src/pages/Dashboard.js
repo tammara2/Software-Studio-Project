@@ -48,7 +48,7 @@ const Dashboard = () => {
               <div className={styles.dailyConcentrationDiv}>
                 Daily Concentration
               </div>
-              <MonthlyCon monthlyVal="413 ppm" />
+              <MonthlyCon monthlyVal="416.06 ppm" />
               <AmericaCon americaVal="460 ppm" />
               <img className={styles.groupIcon} alt="" src="https://i.imgur.com/Q0oW5PX.png" />
             </div>

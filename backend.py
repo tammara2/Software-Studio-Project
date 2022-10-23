@@ -11,7 +11,12 @@ import numpy as np
 def ingest_data():
     #download html from url
     url = 'https://gml.noaa.gov/ccgg/trends/monthly.html'
-    os.system('wget -O monthly.html '+url)
+    # os.system('wget -O monthly.html '+url)
+    # os.system('curl '+url+' > /Users/shedprinter/desktop/nueva_site/monthly.html')
+
+    r = requests.get(url)
+    with open('/Users/shedprinter/desktop/nueva_site/monthly.html', 'wb') as f:
+        f.write(r.content)
 
     #open html as a string
     with open('monthly.html', 'r') as f:
@@ -91,14 +96,14 @@ with open('co2.csv', 'w') as f:
     f.write(csv)
 
 #pull master branch
-os.chdir('/Users/clamalo/documents/operational_nueva_site/')
+os.chdir('/Users/shedprinter/desktop/nueva_site/')
 os.system('git pull')
 
-file = open("/Users/clamalo/Documents/operational_nueva_site/src/pages/Dashboard.tsx","r")
+file = open("/Users/shedprinter/desktop/nueva_site/src/pages/Dashboard.js","r")
 text = file.read()
 most_recent_ppm = text.split('monthlyVal="')[1].split(' ppm')[0]
 text = text.replace('monthlyVal="'+most_recent_ppm+' ppm','monthlyVal="'+str(data[-1])+' ppm')
-with open('/Users/clamalo/Documents/operational_nueva_site/src/pages/Dashboard.tsx', 'w') as f:
+with open('/Users/shedprinter/desktop/nueva_site/src/pages/Dashboard.js', 'w') as f:
     f.write(text)
 
 os.system('git add *')
