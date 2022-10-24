@@ -2,7 +2,7 @@
   position: absolute;
   top: calc(50% - 170px);
   left: calc(50% - 556px);
-  border-radius: var(--br-lg);
+  border-radius: var(--br-sm);
   width: 1111px;
   height: 530px;
   object-fit: cover;
