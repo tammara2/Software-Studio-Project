@@ -61,6 +61,8 @@ with open('/Users/shedprinter/desktop/nueva_site_2/co2.txt', 'r') as f:
 for d in range(len(data)):
     data[d] = float(data[d])
 
+print(data)
+
 max = max(data)
 min = min(data)
 print(min,max)
