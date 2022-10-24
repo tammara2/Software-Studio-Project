@@ -106,6 +106,7 @@ text = text.replace('monthlyVal="'+most_recent_ppm+' ppm','monthlyVal="'+str(dat
 with open('/Users/shedprinter/desktop/nueva_site/src/pages/Dashboard.js', 'w') as f:
     f.write(text)
 
+os.system('git pull')
 os.system('git add *')
 os.system('git commit -m "auto-push"')
 os.system('git push')
