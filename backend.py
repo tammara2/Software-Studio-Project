@@ -19,7 +19,7 @@ def ingest_data():
         f.write(r.content)
 
     #open html as a string
-    with open('monthly.html', 'r') as f:
+    with open('/Users/shedprinter/desktop/nueva_site/monthly.html', 'r') as f:
         html = f.read()
 
     #parse through html file and identify the most recent value
