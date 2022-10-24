@@ -61,6 +61,10 @@ with open('/Users/shedprinter/desktop/nueva_site_2/co2.txt', 'r') as f:
 for d in range(len(data)):
     data[d] = float(data[d])
 
+max = max(data)
+min = min(data)
+print(min,max)
+
 #trim data list to 30, 60, 120 days
 one_hundred_twenty_data = data[-120:]
 sixty_data = data[-60:]
@@ -73,8 +77,6 @@ for i in range(60-len(sixty_data)):
     sixty_data.insert(0, float(np.nan))
 for i in range(30-len(thirty_data)):
     thirty_data.insert(0, float(np.nan))
-
-print(np.max(thirty_data))
 
 #plot all the data
 plot_data(one_hundred_twenty_data,120,'co2_120.png',data[-1])
