@@ -49,7 +49,9 @@ app.post('/select-data', async (req, res) => {
     //Get the type of data the user selected 
     let user_selected_data_type = req.body
     //Just for testing
-    console.log(user_selected_data_type)    
+    console.log(user_selected_data_type)
+    //Run the submit_data function with the given info
+    
     //Redirect the user to the associated data submission page
     res.redirect('/'+"submit/"+user_selected_data_type["data_type_selection"].toLowerCase())
 })
@@ -59,7 +61,6 @@ app.post("/submit/power", async (req, res) => {
     //Accept data from the frontend
     let submitted_power_data = req.body.power_form
     console.log(submitted_power_data)
-    //Run the submit_data function using the provided data
     submit_data("Power/Electricity", submitted_power_data)
     res.redirect("/")
 })
@@ -67,7 +68,6 @@ app.post("/submit/power", async (req, res) => {
 app.post("/submit/water", async (req, res) => {
     //Accept data from the frontend
     let submitted_power_data = req.body.water_form
-    //Run the submit_data function using the provided data
     submit_data("Water", submitted_power_data)
     res.redirect("/")
 })
@@ -75,7 +75,7 @@ app.post("/submit/water", async (req, res) => {
 app.post("/submit/waste", async (req, res) => {
     //Accept data from the frontend
     let submitted_power_data = req.body.waste_form
-    //Run the submit_data function using the provided data
+    await client.connect();
     submit_data("Waste", submitted_power_data)
     res.redirect("/")
 })
