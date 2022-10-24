@@ -74,7 +74,7 @@ for i in range(60-len(sixty_data)):
 for i in range(30-len(thirty_data)):
     thirty_data.insert(0, float(np.nan))
 
-print((thirty_data),max(thirty_data))
+print(np.max(thirty_data))
 
 #plot all the data
 plot_data(one_hundred_twenty_data,120,'co2_120.png',data[-1])
