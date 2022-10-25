@@ -39,7 +39,7 @@ The project currently has a built in frontend, for testing purposes, but a seper
 
 - ### Specific for our client: 
 
-    - No person we have contacted was able to connect us with any source of power, water, and waste data for the school. Until we have a reliable source of utility data the project itself will essentially be useless.
+    - No person we have contacted was able to connect us with any source of power, water, and waste data for the school. Until we have a reliable source of utility data the project itself will not be able to display these. 
 
 ## Run Locally
 
