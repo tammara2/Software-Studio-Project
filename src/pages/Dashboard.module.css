@@ -48,7 +48,7 @@
   font-size: var(--font-size-2xl);
   letter-spacing: -0.01em;
   font-family: var(--font-poppins);
-  color: var(--color-gray-300);
+  color: var(--color-gray-100);
   text-align: left;
   display: inline-block;
   width: 173.72px;
@@ -58,7 +58,7 @@
   position: absolute;
   top: 17px;
   left: calc(50% - 147px);
-  width: 28px;
+  width: 57px;
   height: 37px;
   overflow: hidden;
 }
@@ -78,11 +78,11 @@
 }
 .searchButton:hover {
   cursor: pointer;
-  animation: 1s ease 0s 1 normal none pulsate;
+  animation: 3s ease 0s 1 normal none pulsate;
   opacity: 1;
 }
 .searchButton:active {
-  animation: 1s ease 0s 1 normal none scale-down-center;
+  animation: 2s ease 0s 1 normal none scale-down-center;
   opacity: 1;
 }
 .groupDiv {

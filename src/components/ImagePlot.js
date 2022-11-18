@@ -1,3 +1,12 @@
+/*
+Plots the desired data as a time series line graph.
+Currently, takes CO2 concentration data from "server" and graphs it.
+Can be easily modified for other time series data.
+
+Returns div of the interactive graph.
+Styled in ImagePlot.modules.css.
+*/
+
 import styles from "./ImagePlot.module.css";
 import { useEffect, useState } from "react";
 
