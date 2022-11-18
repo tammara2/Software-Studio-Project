@@ -1,3 +1,9 @@
+/*
+Raw data sources page, accessed by clicking the "raw data" button.
+Also contains links to social media.
+Styled in FrameComponent.modules.css.
+*/
+
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./FrameComponent.module.css";

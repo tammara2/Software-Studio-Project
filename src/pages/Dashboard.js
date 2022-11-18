@@ -1,3 +1,8 @@
+/*
+Main dashboard. Displays basic concentration statistics, as well as graph of local CO2 concentration over time.
+Styled in Dashboard.modules.css.
+*/
+
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import ImagePlot from "../components/ImagePlot";

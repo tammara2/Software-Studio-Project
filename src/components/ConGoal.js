@@ -1,3 +1,9 @@
+/*
+CO2 concentration goal, part of upper panel of dashboard.
+Currently displays a static number, should update to actually fetch the live data.
+Styled in ConGoal.modules.css.
+*/
+
 import { useCallback } from "react";
 import styles from "./ConGoal.module.css";
 
