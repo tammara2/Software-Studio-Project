@@ -1,3 +1,7 @@
+/*
+Main app framework.
+*/
+
 import {
   Routes,
   Route,

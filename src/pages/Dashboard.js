@@ -1,3 +1,8 @@
+/*
+Main dashboard. Displays basic concentration statistics, as well as graph of local CO2 concentration over time.
+Styled in Dashboard.modules.css.
+*/
+
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import ImagePlot from "../components/ImagePlot";
@@ -25,7 +30,6 @@ const Dashboard = () => {
       <b className={styles.theNuevaSchoolCarbonConc}>
         The Nueva School - Carbon Concentration
       </b>
-      <ImagePlot />
       <img
         className={styles.cloud1ByStreamlinehq1}
         alt=""
@@ -79,6 +83,7 @@ const Dashboard = () => {
         </div>
         <img className={styles.group231} alt="" src="https://i.imgur.com/hxgmiLt.png" />
       </div>
+      <ImagePlot />
     </div>
   );
 };
