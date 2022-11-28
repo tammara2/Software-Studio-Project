@@ -17,11 +17,11 @@ def ingest_data():
     # os.system('curl '+url+' > /Users/shedprinter/desktop/nueva_site/monthly.html')
 
     r = requests.get(url)
-    with open('/Users/shedprinter/desktop/nueva_site/monthly.html', 'wb') as f:
+    with open('./monthly.html', 'wb') as f:
         f.write(r.content)
 
     #open html as a string
-    with open('/Users/shedprinter/desktop/nueva_site/monthly.html', 'r') as f:
+    with open('./monthly.html', 'r') as f:
         html = f.read()
 
     #parse through html file and identify the most recent value
@@ -33,7 +33,7 @@ def ingest_data():
         html_list[i] = float(html_list[i])
 
     #open txt file, append the most recent value
-    with open('/Users/shedprinter/desktop/'+data_directory+'/co2.txt', 'a') as f:
+    with open('./co2.txt', 'a') as f:
         f.write(str(html_list[0])+'\n')
 
 #function to plot the data
@@ -53,12 +53,12 @@ def plot_data(data,days,filename,most_recent_co2):
     plt.xlim(0, days-1)
     plt.xticks(np.arange(0, days, step), np.arange(days, 0, -step))
     plt.plot(data)
-    plt.savefig('/Users/shedprinter/desktop/'+data_directory+'/images/'+filename, dpi=300, bbox_inches='tight')
+    #plt.savefig('/Users//desktop/'+data_directory+'/images/'+filename, dpi=300, bbox_inches='tight')
 
 ingest_data()
 
 #read co2.txt as list using readlines
-with open('/Users/shedprinter/desktop/'+data_directory+'/co2.txt', 'r') as f:
+with open('./co2.txt', 'r') as f:
     data = f.readlines()
 for d in range(len(data)):
     data[d] = float(data[d])

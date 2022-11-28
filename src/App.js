@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import FrameComponent from "./pages/FrameComponent";
+import SubmissionComponent from "./pages/Submission"
 import { useEffect } from "react";
 
 function App() {
@@ -58,6 +59,8 @@ function App() {
       <Route path="/" element={<Dashboard />} />
 
       <Route path="/frame-1" element={<FrameComponent />} />
+
+      <Route path="/data-submission" element={<SubmissionComponent />} />
     </Routes>
   );
 }

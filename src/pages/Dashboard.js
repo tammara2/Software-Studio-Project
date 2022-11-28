@@ -13,11 +13,10 @@ import styles from "./Dashboard.module.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
   const onSearchButtonClick = useCallback(() => {
     navigate("/frame-1");
+  
   }, [navigate]);
-
   return (
     <div className={styles.dashboardDiv}>
       <div className={styles.groupDiv}>
@@ -26,6 +25,7 @@ const Dashboard = () => {
           <div className={styles.rawDataDiv}>Raw Data</div>
           <img className={styles.search1Icon} alt="" src="../search-1.svg" />
         </button>
+        <br></br>
       </div>
       <b className={styles.theNuevaSchoolCarbonConc}>
         The Nueva School - Carbon Concentration
