@@ -14,21 +14,6 @@ const FrameComponent = () => {
   const onBackTextClick = useCallback(() => {
     navigate("/");
   }, [navigate]);
-
-  const onImage21Click = useCallback(() => {
-    window.open("https://github.com/NavSous/Software-Studio-Project");
-  }, []);
-
-  const onImage31Click = useCallback(() => {
-    window.open(
-      "https://www.nuevaschool.org/about/notably-nueva/environmental-citizenship"
-    );
-  }, []);
-
-  const onImage41Click = useCallback(() => {
-    window.open("https://twitter.com/claymalott");
-  }, []);
-
   return (
     <div className={styles.frameDiv}>
       <b className={styles.rawDataCarbonConcentratio}>
@@ -38,7 +23,13 @@ const FrameComponent = () => {
       <div className={styles.backDiv} onClick={onBackTextClick}>
         Back
       </div>
-      <textarea></textarea>
+      <form>
+        <label>
+            Waste
+            <input type="text" name="waste" />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
       </div>
       
   );
