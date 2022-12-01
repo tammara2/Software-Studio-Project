@@ -15,7 +15,9 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const onSearchButtonClick = useCallback(() => {
     navigate("/frame-1");
-  
+  }, [navigate]);
+  const onDataClick = useCallback(() => {
+    navigate("/data-submission");
   }, [navigate]);
   return (
     <div className={styles.dashboardDiv}>
@@ -25,11 +27,17 @@ const Dashboard = () => {
           <div className={styles.rawDataDiv}>Raw Data</div>
           <img className={styles.search1Icon} alt="" src="../search-1.svg" />
         </button>
-        <br></br>
+        
+        <button className={styles.searchButton} onClick={onDataClick}>
+          <div className={styles.rectangleDiv} />
+          <div className={styles.rawDataDiv}>Add Data</div>
+        </button>
       </div>
+        
       <b className={styles.theNuevaSchoolCarbonConc}>
         The Nueva School - Carbon Concentration
       </b>
+      
       <img
         className={styles.cloud1ByStreamlinehq1}
         alt=""
@@ -40,6 +48,7 @@ const Dashboard = () => {
         alt=""
         src="https://i.imgur.com/ZVIpfCY.png"
       />
+       
       <div className={styles.groupDiv1}>
         <div className={styles.earningDiv}>
           <img
