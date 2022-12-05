@@ -1,5 +1,6 @@
 #This file is used to pull data from the MongoDB database and update the CSV and JSON files
 import pymongo
+import csv
 from bson import json_util
 import certifi
 import json
@@ -12,23 +13,32 @@ water = database["Water"]
 power = database["Power/Electricity"]
 def parse_json(data):
     return json.loads(json_util.dumps(data))
-for i in waste.find():
     with open("env_data.json", "w") as data:
         information = parse_json(i)
         data.write(json.dumps(information))
         data.close()
-
+    #CSV
+    with open('env_data.csv', 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(i)
 for i in water.find():
     with open("env_data.json", "w") as data:
         information = parse_json(i)
         data.write(json.dumps(information))
         data.close()
-
+    #CSV
+    with open('env_data.csv', 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(i)
 for i in power.find():
     with open("env_data.json", "w") as data:
         information = parse_json(i)
         data.write(json.dumps(information))
         data.close()
+    #CSV
+    with open('env_data.csv', 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(i)
 
 
 
