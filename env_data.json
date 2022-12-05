@@ -1,0 +1,1 @@
+{"_id": {"$oid": "634d96b27f11d50861358e03"}, "total_power_usage": "1", "grid_power_usage": "2", "self_power_usage": "3", "total_power_cost": "4", "date": {"$date": "2022-10-17T17:53:54.670Z"}}
