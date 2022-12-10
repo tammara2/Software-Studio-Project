@@ -13,8 +13,12 @@ The project currently has a built in frontend, for testing purposes, but a seper
 
 ## Current Functionality (Backend)
 
-- This code (backend.py) uses Python to ingest data from the National Oceanic and Atmospheric Administration (NOAA) website, saves the data in a text file, and generates three plots of the data for the last 30, 60, and 120 days. The code uses the requests package to download the HTML data from the NOAA website, and then parses through the HTML to find the most recent CO2 data value. This value is then appended to a text file called co2.txt. The code then reads this text file and creates three different lists with the data for the last 30, 60, and 120 days. Finally, the code uses the matplotlib package to generate three plots of this data and saves these plots in an images directory before saving the data as a csv and pushing it to the ```data``` branch of this repository.
+- This code (backend.py) uses Python to ingest data from the National Oceanic and Atmospheric Administration (NOAA) website, saves the data in a text file, and generates three plots of the data for the last 30, 60, and 120 days. The code uses the ```requests``` package to download the HTML data from the NOAA website, and then parses through the HTML to find the most recent CO2 data value. This value is then appended to a text file called co2.txt. The code then reads this text file and creates three different lists with the data for the last 30, 60, and 120 days. Finally, the code uses the ```matplotlib``` package to generate three plots of this data and saves these plots in an images directory before saving the data as a csv and pushing it to the ```data``` branch of this repository.
+
 - As of 12/9/22, this code now also plots the data as interactive HTML plots. For future development opportunities, these HTML plots could be embedded inside of a larger webpage.
+
+- Dependencies:
+   - ```requests```
 
 - ExpressJS backend with the ability to run the server.
 
