@@ -29,11 +29,9 @@ The project currently has a built in frontend, for testing purposes, but a seper
 
 - Fully connect the frontend, backend, and data analysis
 
-- Remove the redundant frontend from the Node/Express server
-
-- Create testing functions to ensure data submission and analysis work without the risk of major errors
-
 - Work on improving the data submission functionality to allow for utility providers to easily or even automatically provide data
+
+- Gain access to actual data
 
 ## Major Issues
 
