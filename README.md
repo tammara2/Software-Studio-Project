@@ -17,8 +17,14 @@ The project currently has a built in frontend, for testing purposes, but a seper
 
 - As of 12/9/22, this code now also plots the data as interactive HTML plots. For future development opportunities, these HTML plots could be embedded inside of a larger webpage.
 
-- Dependencies:
+- Python dependencies:
    - ```requests```
+   - ```json```
+   - ```datetime```
+   - ```numpy```
+   - ```matplotlib```
+   - ```os```
+   - ```mpld3```
 
 - ExpressJS backend with the ability to run the server.
 
