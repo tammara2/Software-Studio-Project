@@ -1,8 +1,9 @@
 
 # End to End Test Procedures
 
+***
 
-##Protocol 1 (CSV Proccessing/ Graph Reflections)
+## Protocol 1 (CSV Proccessing/ Graph Reflections)
 
   -Load a sample data set into the dashboard, using a CSV file or other appropriate format.
   
