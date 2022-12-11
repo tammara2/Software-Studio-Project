@@ -16,6 +16,14 @@
   -Repeat steps 4 and 5 several times, using a variety of different data sets and changes, to ensure that the dashboard consistently updates the frontend graph in response to changes in the underlying data.
 
 
+## Protocol 2 (Data Reflections on the Frontend)
 
+- Prepare a sample data set in CSV format, including a variety of different data types and values to test the dashboard's parsing capabilities.
+
+- Load the sample data set into the dashboard, using the appropriate interface or method (FIle Link).
+
+- Examine the data displayed on the frontend of the dashboard, comparing it to the original data set to ensure that all of the data has been properly read and parsed by the dashboard.
+
+- Repeat steps 3-5 using a variety of different data sets and formats, including CSV files with different values, + other formatting options, to ensure that the dashboard can handle a wide range of input formats within the CSV.
 
   
