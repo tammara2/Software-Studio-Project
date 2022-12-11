@@ -11,7 +11,7 @@ The project currently has a built in frontend, for testing purposes, but a seper
 
 
 
-## Current Functionality (Backend)
+## Current Functionality
 
 - This code (backend.py) uses Python to ingest data from the National Oceanic and Atmospheric Administration (NOAA) website, saves the data in a text file, and generates three plots of the data for the last 30, 60, and 120 days. The code uses the ```requests``` package to download the HTML data from the NOAA website, and then parses through the HTML to find the most recent CO2 data value. This value is then appended to a text file called co2.txt. The code then reads this text file and creates three different lists with the data for the last 30, 60, and 120 days. Finally, the code uses the ```matplotlib``` package to generate three plots of this data and saves these plots in an images directory before saving the data as a csv and pushing it to the ```data``` branch of this repository.
 
@@ -37,6 +37,25 @@ The project currently has a built in frontend, for testing purposes, but a seper
 - ReactJS frontend with live data API integration
 
 - Python data visualization system that generates graphs and images from stored objects
+
+# How to Update With Waste Data
+
+
+## Take the waste data (Quarterly but ideally monthly) and turn it into CSV format. 
+
+  Upload the CSV into the file base and take the python script to take the data from the csv.
+
+  Update the monthly value and yearly value to the appropriate filenames. 
+
+## Python Script
+
+  The python handles calculation of monthly/yearly averages, all one needs to do is convert waste data into a csv.
+
+With this, the graph will continuously upload Waste data, as the csv updates, and the numbers will update accordingly. 
+
+
+
+
 
 ## Future Features and Goals
 
