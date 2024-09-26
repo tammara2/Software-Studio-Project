@@ -1,5 +1,7 @@
 
-# School Utility Tracker - Backend
+# Enviornmental Tracker
+
+***https://real-nueva-frontend.herokuapp.com/***
 
 This is the backend of the School Utility Tracker, made in NodeJs and ExpressJS with a MongoDB database connection.
 
@@ -9,7 +11,20 @@ The project currently has a built in frontend, for testing purposes, but a seper
 
 
 
-## Current Functionality (Backend)
+## Current Functionality
+
+- This code (backend.py) uses Python to ingest data from the National Oceanic and Atmospheric Administration (NOAA) website, saves the data in a text file, and generates three plots of the data for the last 30, 60, and 120 days. The code uses the ```requests``` package to download the HTML data from the NOAA website, and then parses through the HTML to find the most recent CO2 data value. This value is then appended to a text file called co2.txt. The code then reads this text file and creates three different lists with the data for the last 30, 60, and 120 days. Finally, the code uses the ```matplotlib``` package to generate three plots of this data and saves these plots in an images directory before saving the data as a csv and pushing it to the ```data``` branch of this repository.
+
+- As of 12/9/22, this code now also plots the data as interactive HTML plots. For future development opportunities, these HTML plots could be embedded inside of a larger webpage.
+
+- Python dependencies:
+   - ```requests```
+   - ```json```
+   - ```datetime```
+   - ```numpy```
+   - ```matplotlib```
+   - ```os```
+   - ```mpld3```
 
 - ExpressJS backend with the ability to run the server.
 
@@ -23,15 +38,32 @@ The project currently has a built in frontend, for testing purposes, but a seper
 
 - Python data visualization system that generates graphs and images from stored objects
 
+# How to Update With Waste Data
+
+
+## Take the waste data (Quarterly but ideally monthly) and turn it into CSV format. 
+
+  Upload the CSV into the file base and take the python script to take the data from the csv.
+
+  Update the monthly value and yearly value to the appropriate filenames. 
+
+## Python Script
+
+  The python handles calculation of monthly/yearly averages, all one needs to do is convert waste data into a csv.
+
+With this, the graph will continuously upload Waste data, as the csv updates, and the numbers will update accordingly. 
+
+
+
+
+
 ## Future Features and Goals
 
 - Fully connect the frontend, backend, and data analysis
 
-- Remove the redundant frontend from the Node/Express server
-
-- Create testing functions to ensure data submission and analysis work without the risk of major errors
-
 - Work on improving the data submission functionality to allow for utility providers to easily or even automatically provide data
+
+- Gain access to actual data
 
 ## Major Issues
 
@@ -39,7 +71,7 @@ The project currently has a built in frontend, for testing purposes, but a seper
 
 - ### Specific for our client: 
 
-    - No person we have contacted was able to connect us with any source of power, water, and waste data for the school. Until we have a reliable source of utility data the project itself will essentially be useless.
+    - No person we have contacted was able to connect us with any source of power, water, and waste data for the school. Until we have a reliable source of utility data the project itself will not be able to display these. 
 
 ## Run Locally
 
